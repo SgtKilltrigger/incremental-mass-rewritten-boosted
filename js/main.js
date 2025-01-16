@@ -47,9 +47,9 @@ const FORMS = {
     massGain() {
         let x = E(1)
         x = x.add(BUILDINGS.eff('mass_1'))
-        if (player.mass.gte(1) && player.inf.theorem.lt(1)) x = x.mul(player.mass.max(1).log(10).plus(1))
+        if (player.mass.gte(1) && player.inf.theorem.lt(1)) x = x.mul(player.mass.log(10).plus(1))
         if (player.ranks.rank.gte(1)) x = x.mul(player.ranks.rank.mul(0.333).add(1))
-        if (player.ranks.tier.gte(1)) x = x.mul(player.ranks.tier.pow(2))
+        if (player.ranks.tier.gte(1)) x = x.mul(player.ranks.tier.add(1).pow(2))
         if (player.ranks.rank.gte(6)) x = x.mul(RANKS.effect.rank[6]())
         if (player.ranks.rank.gte(13)) x = x.mul(3)
         if (player.mainUpg.bh.includes(10)) x = x.mul(tmp.upgs.main?tmp.upgs.main[2][10].effect:E(1))
@@ -172,7 +172,7 @@ const FORMS = {
 
         if (player.dark.shadow.gte(1)) x = x.root(2)
         let nerf = player.inf.theorem.mul(5)
-        if (player.inf.theorem.lt(20) && player.mass.gte(player.mass.log(10).add(1).log(10).add(1).sub(300))) {
+        if (player.inf.theorem.lt(20) && player.mass.gte('ee300')) {
             let exponent = Decimal.sub(100, nerf).toNumber()
             x = x.pow(1 / exponent)
         }
@@ -570,7 +570,7 @@ const FORMS = {
         },
         doReset() {
             let keep = []
-            for (let x = 0; x < player.mainUpg.rp.length; x++) if ([3,5,6].includes(player.mainUpg.rp[x])) keep.push(player.mainUpg.rp[x])
+            for (let x = 0; x < player.mainUpg.rp.length; x++) if ([3,4,5,6].includes(player.mainUpg.rp[x])) keep.push(player.mainUpg.rp[x])
             if (!hasInfUpgrade(18)) player.mainUpg.rp = keep
             player.rp.points = E(0)
             BUILDINGS.reset('tickspeed')

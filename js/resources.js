@@ -81,7 +81,7 @@ const RESOURCES_DIS = {
         icon: "br",
         class: "light_red",
 
-        desc: (gs)=>player.qu.rip.amt.format(0)+"<br>"+(player.qu.rip.active||hasElement(147)?hasUpgrade('br',8)?player.qu.rip.amt.formatGain(tmp.rip.gain.div(10).mul(gs)):`(+${tmp.rip.gain.format(0)})`:"(inactive)"),
+        desc: (gs)=>player.qu.rip.amt.format(0)+"<br>"+(player.qu.rip.active||hasElement(147)?hasUpgrade('br',8)?player.qu.rip.amt.formatGain(tmp.rip.gain.mul(gs)):`(+${tmp.rip.gain.format(0)})`:"(inactive)"),
 
         resetBtn() { BIG_RIP.rip() },
     },

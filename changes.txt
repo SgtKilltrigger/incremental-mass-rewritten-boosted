@@ -105,3 +105,9 @@ all pre-infinity buffs that use log are disabled at reaching 1 infinity theorem
 Theorem:
 
 base chance to get dots 0.1 --> 0.225
+
+resets:
+
+black hole reset does NOT reset rp upgrade 4 anymore
+atom reset does NOT reset bh upgrade 1 and 4 anymore
+supernova reset does NOT reset atom upgrade 1 and 4 anymore

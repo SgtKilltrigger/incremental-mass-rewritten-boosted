@@ -73,7 +73,7 @@ const ATOM = {
         player.bh.dm = E(0)
         BUILDINGS.reset('bhc')
         let keep = []
-        for (let x = 0; x < player.mainUpg.bh.length; x++) if ([5].includes(player.mainUpg.bh[x])) keep.push(player.mainUpg.bh[x])
+        for (let x = 0; x < player.mainUpg.bh.length; x++) if ([1,4,5].includes(player.mainUpg.bh[x])) keep.push(player.mainUpg.bh[x])
         if (!hasInfUpgrade(18)) player.mainUpg.bh = keep
         if (chal_reset && !player.mainUpg.atom.includes(4) && !hasTree("chal2") ) for (let x = 1; x <= 4; x++) player.chal.comps[x] = E(0)
         FORMS.bh.doReset()
@@ -142,8 +142,8 @@ const ATOM = {
             let t = player.atom.gamma_ray
             t = t.mul(tmp.radiation.bs.eff[10])
             let pow = E(2)
-            if (player.mainUpg.atom.includes(4)) pow = pow.add(tmp.upgs.main?tmp.upgs.main[3][4].effect:E(0))
             pow = pow.add(player.atom.gamma_ray.mul(0.003))
+            if (player.mainUpg.atom.includes(4)) pow = pow.add(tmp.upgs.main?tmp.upgs.main[3][4].effect:E(0))
             if (player.mainUpg.atom.includes(11)) pow = pow.mul(tmp.upgs.main?tmp.upgs.main[3][11].effect:E(1))
             if (hasTree("gr1")) pow = pow.mul(tmp.supernova.tree_eff.gr1)
             pow = pow.mul(tmp.bosons.upgs.gluon[1].effect)
