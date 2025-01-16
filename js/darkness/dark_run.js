@@ -195,7 +195,7 @@ function buyGlyphUpgrade(i) {
     if (isAffordGlyphCost(cost) && ua < max) {
         upgs[i] = upgs[i] ? upgs[i] + 1 : 1
 
-        for (let c in cost) if (tmp.dark.mg_passive[c]<=0) player.dark.run.glyphs[c] = player.dark.run.glyphs[c].sub(cost[c])
+        //for (let c in cost) if (tmp.dark.mg_passive[c]<=0) player.dark.run.glyphs[c] = player.dark.run.glyphs[c].sub(cost[c])
 
         if (i==12) updateAtomTemp()
         updateDarkRunTemp()
@@ -282,7 +282,7 @@ function updateDarkRunTemp() {
     dtmp.glyph_weak = w
 
     let dp = 0
-    if (hasElement(7,1)) dp += 3
+    if (hasElement(7,1)) dp += 6
 
     for (let x = 0; x < MASS_GLYPHS_LEN; x++) {
         dtmp.mass_glyph_eff[x] = DARK_RUN.mass_glyph_eff(x)

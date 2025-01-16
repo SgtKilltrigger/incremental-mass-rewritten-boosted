@@ -1,7 +1,7 @@
 const QCs = {
     active() { return player.qu.qc.active || player.qu.rip.active || CHALS.inChal(14) || CHALS.inChal(15) || tmp.c16active || inDarkRun() },
     getMod(x) { return CHALS.inChal(15) ? [10,5,10,10,10,10,10,10][x] : tmp.c16active || inDarkRun() ? 8 : CHALS.inChal(14) ? 5 : player.qu.rip.active ? BIG_RIP_QC[x] : player.qu.qc.mods[x] },
-    incMod(x,i) { if (!this.active()) player.qu.qc.mods[x] = Math.min(Math.max(player.qu.qc.mods[x]+i,0),10) },
+    incMod(x,i) { if (!this.active()) player.qu.qc.mods[x] = Math.min(Math.max(player.qu.qc.mods[x]+i,0),tmp.qu.qc_max) },
     enter() {
         if (!player.qu.qc.active) {
             let is_zero = true
@@ -13,6 +13,11 @@ const QCs = {
         }
         if (player.qu.qc.active) CONFIRMS_FUNCTION.enterQC()
         else createConfirm("Are you sure to enter the Quantum Challenge? Entering it will force reset!",'qc',CONFIRMS_FUNCTION.enterQC)
+    },
+    GetMaxModifications() {
+        let x = E(10)
+        
+        return x
     },
     names: ["Black Dwarf","Time Anomaly","Hypertiered","Melted Interactions","Intense Catalyst","Ex-Challenge","Spatial Dilation","Extreme Scaling"],
     ctn: [
@@ -188,6 +193,7 @@ function updateQCTemp() {
     }
     tmp.qu.qc_s = s
     tmp.qu.qc_s_bouns = bs
+    tmp.qu.qc_max = QCs.GetMaxModifications()
 }
 
 function updateQCHTML() {

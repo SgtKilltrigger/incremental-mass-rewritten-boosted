@@ -422,7 +422,7 @@ const MAX_CORE_LENGTH = 8
 const MIN_CORE_LENGTH = 4
 const MAX_INV_LENGTH = 100
 
-const CORE_CHANCE_MIN = 0.1
+const CORE_CHANCE_MIN = 0.225
 const CORE_TYPE = Object.keys(CORE)
 const MIN_STAR_CHANCES = [0.1,0.1,0.1,0.1,0.01,0.01,0.0025,0.000125] // new Array(MAX_STARS).fill(0.1)
 

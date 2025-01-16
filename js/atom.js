@@ -143,6 +143,7 @@ const ATOM = {
             t = t.mul(tmp.radiation.bs.eff[10])
             let pow = E(2)
             if (player.mainUpg.atom.includes(4)) pow = pow.add(tmp.upgs.main?tmp.upgs.main[3][4].effect:E(0))
+            pow = pow.add(player.atom.gamma_ray.mul(0.003))
             if (player.mainUpg.atom.includes(11)) pow = pow.mul(tmp.upgs.main?tmp.upgs.main[3][11].effect:E(1))
             if (hasTree("gr1")) pow = pow.mul(tmp.supernova.tree_eff.gr1)
             pow = pow.mul(tmp.bosons.upgs.gluon[1].effect)
@@ -197,6 +198,8 @@ const ATOM = {
         effect(i) {
             let p = player.atom.particles[i]
             let x = p.pow(2)
+            if (x.gte(1)) x = x.add(1)
+            if (x.gte(1) && player.inf.theorem.lt(1)) x = x.mul(x.max(1).log(10).add(1))
             if (hasElement(12)) x = p.pow(p.add(1).log10().add(1).root(4).pow(tmp.chal.eff[9]).softcap(40000,0.1,0))
             x = x.softcap('e3.8e4',0.9,2).softcap('e1.6e5',0.9,2)
             if (hasElement(61)) x = x.mul(p.add(1).root(2))

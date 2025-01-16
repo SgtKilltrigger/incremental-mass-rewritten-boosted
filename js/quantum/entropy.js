@@ -27,6 +27,8 @@ const ENTROPY = {
 
         if (hasElement(185)) x = overflow(x,tmp.en.cap.max(10),0.25)
 
+        if (x.gte(1) && player.inf.theorem.lt(1) && player.qu.times.gte(10) && !player.md.break.upgs[10].gte(1)) x = x.mul(player.qu.times.pow(0.13))
+
         return x
     },
     cap() {

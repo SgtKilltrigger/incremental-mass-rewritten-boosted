@@ -17,6 +17,7 @@ const QUANTUM = {
     },
     gainTimes() {
         let x = E(1)
+        if (player.qu.times.gte(10)) x = x.mul(10)
         if (hasTree("qu7")) x = x.mul(treeEff("qu7"))
         if (hasTree("qu9")) x = x.mul(treeEff("qu9"))
         if (hasElement(139)) x = x.mul(elemEffect(139,1))
@@ -225,7 +226,7 @@ function calcQuantum(dt) {
 
         if (hasUpgrade('br',8)) {
             player.qu.points = player.qu.points.add(tmp.qu.gain.mul(inf_gs).div(10))
-            if (player.qu.rip.active || hasElement(147)) player.qu.rip.amt = player.qu.rip.amt.add(tmp.rip.gain.mul(inf_gs).div(10))
+            if (player.qu.rip.active || hasElement(147)) player.qu.rip.amt = player.qu.rip.amt.add(tmp.rip.gain.mul(inf_gs))
         }
 
         if (hasElement(139)) player.qu.times = player.qu.times.add(tmp.qu.gainTimes.mul(inf_gs))

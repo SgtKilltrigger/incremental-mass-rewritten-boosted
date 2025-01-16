@@ -69,6 +69,9 @@ const MASS_DILATION = {
         tmp.overflow.dm = calcOverflow(o,x,os)
         tmp.overflow_start.dm = os
 
+        if (player.supernova.times.gte(1)) x = x.pow(player.supernova.times.mul(0.01).add(1))
+        if (player.atom.quarks.gte(10) && player.inf.theorem.lt(1)) x = x.mul(player.atom.quarks.max(1).log(10))
+
         return x
     },
     gainSoftcap1() {

@@ -30,9 +30,13 @@ const DARK = {
 
         x.shadow = a.max(1).pow(2).pow(tmp.c16active?1:(tmp.fermions.effs[0][6]||1)).overflow('ee10',0.5)
 
-        if (a.gte(1e12)) x.passive = a.div(1e12).max(1).log10().add(1).pow(2).div(1e3)
+        if (a.gte(1) && a.lt(1e12)) x.passive = a.pow(0.35).div(1000)
+        if (a.gte(1e12)) x.passive = a.div(1e12).max(1).log10().add(1).pow(2).div(1e2)
         if (a.gte(1e22)) x.glyph = a.div(1e22).max(1).log10().add(1).root(2).sub(1).div(10).add(1)
         if (a.gte(1e130)) x.dChal = a.div(1e130).max(1).log10().mul(20).softcap(100,0.5,0,hasBeyondRank(3,12)).floor()
+        if ((x.passive ?? E(0)).gte(1) && (a ?? E(0).gte(1))) {
+            x.passive = (x.passive ?? E(0)).pow((a ?? E(0).max(1).log(10).add(1).pow(0.01)))
+        }
 
         return x
     },
@@ -76,7 +80,7 @@ const DARK = {
         
         if (!hasElement(124) || (force && !hasElement(136))) {
             let qk = ["qu_qol1", "qu_qol2", "qu_qol3", "qu_qol4", "qu_qol5", "qu_qol6", "qu_qol7", "qu_qol8", "qu_qol9", "qu_qol8a", "unl1", "unl2", "unl3", "unl4",
-            "qol1", "qol2", "qol3", "qol4", "qol5", "qol6", "qol7", "qol8", "qol9", 'qu_qol10', 'qu_qol11']
+            "qol1", "qol2", "qol3", "qol4", "qol5", "qol6", "qol7", "qol8", "qol9", 'qu_qol10', 'qu_qol11', 'qu_qol12']
 
             let qk2 = []
             for (let x = 0; x < player.supernova.tree.length; x++) if (qk.includes(player.supernova.tree[x])) qk2.push(player.supernova.tree[x])

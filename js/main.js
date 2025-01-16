@@ -47,6 +47,9 @@ const FORMS = {
     massGain() {
         let x = E(1)
         x = x.add(BUILDINGS.eff('mass_1'))
+        if (player.mass.gte(1) && player.inf.theorem.lt(1)) x = x.mul(player.mass.max(1).log(10).plus(1))
+        if (player.ranks.rank.gte(1)) x = x.mul(player.ranks.rank.mul(0.333).add(1))
+        if (player.ranks.tier.gte(1)) x = x.mul(player.ranks.tier.pow(2))
         if (player.ranks.rank.gte(6)) x = x.mul(RANKS.effect.rank[6]())
         if (player.ranks.rank.gte(13)) x = x.mul(3)
         if (player.mainUpg.bh.includes(10)) x = x.mul(tmp.upgs.main?tmp.upgs.main[2][10].effect:E(1))
@@ -167,6 +170,12 @@ const FORMS = {
 
         if (CHALS.inChal(13)) x = x.max(1).log10().tetrate(1.5)
 
+        if (player.dark.shadow.gte(1)) x = x.root(2)
+        let nerf = player.inf.theorem.mul(5)
+        if (player.inf.theorem.lt(20) && player.mass.gte(player.mass.log(10).add(1).log(10).add(1).sub(300))) {
+            let exponent = Decimal.sub(100, nerf).toNumber()
+            x = x.pow(1 / exponent)
+        }
         return x
     },
     massSoftGain() {
@@ -430,6 +439,7 @@ const FORMS = {
             if (CHALS.inChal(7) || CHALS.inChal(10)) gain = player.mass.div(1e180)
             if (gain.lt(1)) return E(0)
             gain = gain.root(4)
+            gain = gain.mul(player.ranks.tetr.add(1))
 
             if (hasTree("bh1") && !hasElement(166)) gain = gain.mul(tmp.supernova.tree_eff.bh1)
             if (!hasElement(204)) gain = gain.mul(tmp.bosons.upgs.photon[0].effect)
@@ -461,6 +471,8 @@ const FORMS = {
         },
         massGain() {
             let x = tmp.bh.f.mul(BUILDINGS.eff('bhc'))
+            if (x.gte(1) && player.inf.theorem.lt(1)) x = x.mul(player.bh.mass.max(1).log(25).add(1))
+            x = x.mul(player.ranks.tetr.add(1).pow(1000))
             if (player.mainUpg.rp.includes(11)) x = x.mul(tmp.upgs.main?tmp.upgs.main[1][11].effect:E(1))
             if (player.mainUpg.bh.includes(14)) x = x.mul(tmp.upgs.main?tmp.upgs.main[2][14].effect:E(1))
             if (hasElement(46) && !hasElement(162)) x = x.mul(tmp.elements.effect[46])

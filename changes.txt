@@ -1,0 +1,107 @@
+these are basically all the changes made compared to the Incremental Mass Rewritten game by MrRedShark77
+it is inteded to make the game faster (at times probably too fast), as to make it more active
+at the same time there are some "quality of life features" like not spending glyphs and only requirering them
+
+
+
+mass gain:
+
+log(10) multiplier of mass
+ranksx0.333
+tier^2
+
+dark matter:
+
+x tetr
+
+black hole mass:
+
+x tetr^1000
+x log(25)
+
+quarks:
+
+challenge 7 completions give (C7^((C7*0.01)+1)) multiplier***
+
+Cosmic Rays:
+
+each Cosmic Ray + 0.003 power
+
+particles:
+
++1 particle
+log(10) of particle to multiplier
+
+Mass Dilation:
+Dilated Mass:
+
+log(10) of Quarks to Multiplier
+each supernova gives +0.01 exponent
+
+stars:
+
+every 1e100 dilated mass +1 to multiplier to each star
+
+Neutron stars:
+
+base is 0.2 instead of 0.1
+log(3) of Neutron stars to multiplier
+
+bosons:
+
+graviton gain --> log(10) of gluons to the power of supernovasx0.1
+hb gain --> log(10) of hb to the power of supernovasx0.2
+
+
+fermions:
+
+**commented out**
+
+radiation:
+
+supernova x0.1 as multiplier
+
+quantum:
+
+Quantizes x10 at 10 Quantizes
+
+chroma:
+
+log(40) of Chroma as Multiplier
+
+entropy:
+
+entropy gain x quantum times to the power of 0.13
+
+big rip:
+
+death shards < 750000, log(4) of death shards as multiplier
+death shard passive gain is 100% of gain instead of 10%
+
+quantum challenges:
+
+nothing as of yet
+
+dark rays:
+
+Below 1e12 Dark Rays gain (Dark Rays^0.35/1e3) as passive income
+passive gain to a power of (log(100) to the power of 0.01), minumum 1
+Over 1e12 Dark Rays gain is x10
+
+glyphs:
+
+glyph upgrade no longer reduce your glyphs on upgrade (just makes it faster)
+muonic element 7 now automatically gives all glyphs instead of just the first 3
+
+corruption:
+
+commented out requirements, meaning you only need the corrupted shards
+*will adjust the costs later on*
+
+infinity:
+
+all pre-infinity buffs that use log are disabled at reaching 1 infinity theorem
+
+Theorem:
+
+base chance to get dots 0.1 --> 0.225

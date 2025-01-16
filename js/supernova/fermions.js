@@ -13,6 +13,8 @@ const FERMIONS = {
 
         if (tmp.c16active || inDarkRun()) x = expMult(x,mgEff(4)[0])
 
+        //if (x.gte(1)) x = x.mul(player.ranks.rank.pow(0.5).mul(player.ranks.tier.pow(0.8)))
+
         return x
     },
     backNormal() {
