@@ -288,7 +288,7 @@ function getPlayerData() {
         },
         confirms: {},
         offline: {
-            active: true,
+            active: false,
             current: Date.now(),
             time: 0,
         },
