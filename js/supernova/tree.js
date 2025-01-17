@@ -328,20 +328,18 @@ const TREE_UPGS = {
         chal2: {
             branch: ["chal1"],
             req() {
-                for (let x = 1; x <= 4; x++) if (player.chal.comps[x].gte(1)) return false
                 return player.mass.gte(E('e2.05e6').mul(1.5e56))
             },
-            reqDesc() { return `Reach ${format('e2.05e6')} uni without challenge 1-4 completions in a Supernova run.` },
+            reqDesc() { return `Reach ${format('e2.05e6')} uni` },
             desc: `Keep challenge 1-4 completions on reset.`,
-            cost: E(1e4),
+            cost: E(1e3),
         },
         chal3: {
             branch: ["chal1"],
             req() {
-                for (let x = 5; x <= 8; x++) if (player.chal.comps[x].gte(1)) return false
                 return player.bh.mass.gte(E('e1.75e4').mul(1.5e56))
             },
-            reqDesc() { return `Reach ${format('e1.75e4')} uni of black hole without challenge 5-8 completions in a Supernova run.` },
+            reqDesc() { return `Reach ${format('e1.75e4')} uni of black hole` },
             desc: `Keep challenge 5-8 completions on reset.`,
             cost: E(1e4),
         },
