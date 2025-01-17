@@ -471,8 +471,9 @@ const FORMS = {
         },
         massGain() {
             let x = tmp.bh.f.mul(BUILDINGS.eff('bhc'))
+            let y = new Decimal(1000)
             if (x.gte(1) && player.inf.theorem.lt(1)) x = x.mul(player.bh.mass.max(1).log(25).add(1))
-            x = x.mul(player.ranks.tetr.add(1).pow(1000))
+            if (player.ranks.tetr.gte(1)) x = x.mul(y.pow(player.ranks.tetr)).max(1)
             if (player.mainUpg.rp.includes(11)) x = x.mul(tmp.upgs.main?tmp.upgs.main[1][11].effect:E(1))
             if (player.mainUpg.bh.includes(14)) x = x.mul(tmp.upgs.main?tmp.upgs.main[2][14].effect:E(1))
             if (hasElement(46) && !hasElement(162)) x = x.mul(tmp.elements.effect[46])

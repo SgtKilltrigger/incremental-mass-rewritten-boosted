@@ -106,7 +106,7 @@ const STARS = {
             x = expMult(x,GPEffect(0))
             if (QCs.active()) x = expMult(x,tmp.qu.qc_eff[0][0])
             
-            if (player.md.mass.gte(1e100) && player.inf.theorem.lt(1)) x = x.mul(player.md.mass.log(10).div(100).pow(0.5).max(1)) 
+            if (player.md.mass.gte(1e100) && player.inf.theorem.lt(1)) x = x.mul(player.md.mass.log(10).div(100).pow(0.65).max(1)) 
             
             return x
         },
