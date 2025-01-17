@@ -295,7 +295,7 @@ const TREE_UPGS = {
             req() { return player.supernova.times.gte(17) },
             reqDesc: `17 Supernovas.`,
             desc: `While in any challenge, you can now automatically complete it before exiting.`,
-            cost: E(1e15),
+            cost: E(1e14),
         },
         qol7: {
             branch: ["qol6"],
