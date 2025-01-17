@@ -106,9 +106,10 @@ const STARS = {
             x = expMult(x,GPEffect(0))
             if (QCs.active()) x = expMult(x,tmp.qu.qc_eff[0][0])
 
-            let y = new Decimal(2/3)
+            let y = new Decimal(1)
             if (!hasTree("qol2")) y = y.mul(1.5)
-            if (player.supernova.times.lt(1) && player.dark.shadow.lte(0) && player.inf.theorem.lt(1)) y = y.mul(2)
+            if (player.supernova.times.lt(1) && player.dark.shadow.lte(0) && player.inf.theorem.lt(1)) y = y.mul(1.5)
+            if (player.supernova.times.gte(1)) y = y.mul(player.supernova.times.mul(0.05).add(1.1).max(1).min(10))
             if (player.md.mass.gte(1e100) && player.inf.theorem.lt(1)) x = x.mul(player.md.mass.log(10).div(100).pow(y).max(1))
 
             return x
