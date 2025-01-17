@@ -183,8 +183,8 @@ const TREE_UPGS = {
         },
         t1: {
             branch: ["m1", 'rp1'],
-            req() { return player.supernova.chal.noTick && player.mass.gte(E("1.5e1.650056e6").pow(hasTree('bh2')?1.46:1)) },
-            reqDesc() {return `Reach ${formatMass(E("1.5e1.650056e6").pow(hasTree('bh2')?1.46:1))} without buying Tickspeed in a Supernova run. You can still obtain Tickspeed from Cosmic Rays.`},
+            req() { return player.mass.gte(E("1.5e3.000056e6")) },
+            reqDesc() {return `Reach ${formatMass(E("1.5e3.000056e6"))} without buying Tickspeed in a Supernova run. You can still obtain Tickspeed from Cosmic Rays.`},
             desc: `Tickspeed Power is raised to the 1.15th.`,
             cost: E(1500),
         },
@@ -214,8 +214,8 @@ const TREE_UPGS = {
         },
         bh2: {
             branch: ['bh1'],
-            req() { return player.supernova.chal.noBHC && player.bh.mass.gte("1.5e1.7556e4") },
-            reqDesc() {return `Reach ${format("e1.75e4")} uni of black hole without buying any BH Condenser in a Supernova run.`},
+            req() { return player.bh.mass.gte("1.5e2.7556e5") },
+            reqDesc() {return `Reach ${format("e2.75e5")} uni of black hole without buying any BH Condenser in a Supernova run.`},
             desc: `BH Condenser power is raised to the 1.15th.`,
             cost: E(1500),
         },
