@@ -260,6 +260,7 @@ const FERMIONS = {
                 },
                 eff(i, t) {
                     let x = i.add(1).log10().mul(t).div(100).add(1).softcap(1.5,hasTree("fn5")?0.75:0.25,0)
+                    if (player.supernova.times.gte(21)) x = x.mul(player.supernova.times.sub(20).mul(0.05).add(1).max(1))
                     if (hasTree("fn10")) x = x.pow(4.5)
                     return x//.softcap(1e18,0.1,0)
                 },

@@ -332,7 +332,7 @@ const TREE_UPGS = {
             },
             reqDesc() { return `Reach ${format('e2.05e6')} uni` },
             desc: `Keep challenge 1-4 completions on reset.`,
-            cost: E(1e3),
+            cost: E(0),
         },
         chal3: {
             branch: ["chal1"],
@@ -729,10 +729,10 @@ const TREE_UPGS = {
         qu_qol1: {
             qf: true,
             unl() { return quUnl() },
-            req() { return player.qu.times.gte(4) },
-            reqDesc: `Quantized 4 times.`,
+            req() { return player.qu.times.gte(0) },
+            reqDesc: `You can get it for free`,
             desc: `You now automatically purchase supernova tree upgrades as long as they don't cost quantum foam.`,
-            cost: E(3),
+            cost: E(0),
         },
         qu_qol2: {
             qf: true,
