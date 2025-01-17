@@ -44,8 +44,11 @@ const MASS_DILATION = {
         if (hasElement(22)) x = x.mul(tmp.elements.effect[22])
         if (hasElement(35)) x = x.mul(tmp.elements.effect[35])
         if (hasElement(40)) x = x.mul(tmp.elements.effect[40][0])
+        if (player.atom.quarks.gte(10) && player.inf.theorem.lt(1)) x = x.mul(player.atom.quarks.max(1).log(2))
         if (hasElement(32)) x = x.pow(1.05)
         if (QCs.active()) x = x.pow(tmp.qu.qc_eff[4])
+        
+        if (player.supernova.times.gte(1)) x = x.pow(player.supernova.times.mul(0.01).add(1))
 
         x = x.softcap(tmp.md.massSoftcap1,0.5,0)
 
@@ -68,9 +71,6 @@ const MASS_DILATION = {
         tmp.overflowBefore.dm = o
         tmp.overflow.dm = calcOverflow(o,x,os)
         tmp.overflow_start.dm = os
-
-        if (player.supernova.times.gte(1)) x = x.pow(player.supernova.times.mul(0.01).add(1))
-        if (player.atom.quarks.gte(10) && player.inf.theorem.lt(1)) x = x.mul(player.atom.quarks.max(1).log(2))
 
         return x
     },
