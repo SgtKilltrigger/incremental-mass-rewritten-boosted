@@ -170,12 +170,12 @@ const FORMS = {
 
         if (CHALS.inChal(13)) x = x.max(1).log10().tetrate(1.5)
 
-        if (player.dark.shadow.gte(1)) x = x.root(2)
+        /*if (player.dark.shadow.gte(1)) x = x.root(2)
         let nerf = player.inf.theorem.mul(5)
         if (player.inf.theorem.lt(20) && player.mass.gte('ee300')) {
             let exponent = Decimal.sub(100, nerf).toNumber()
             x = x.pow(1 / exponent)
-        }
+        }*/
         return x
     },
     massSoftGain() {
