@@ -110,7 +110,7 @@ const STARS = {
             if (!hasTree("qol2")) y = y.mul(1.5)
             if (player.supernova.times.lt(1) && player.dark.shadow.lte(0) && player.inf.theorem.lt(1)) y = y.mul(1.5)
             if (player.supernova.times.gte(1)) y = y.mul(player.supernova.times.mul(0.05).add(1.1).max(1).min(10))
-            if (player.md.mass.gte(1e100) && player.inf.theorem.lt(1)) x = x.mul(player.md.mass.log(10).div(100).pow(y).max(1))
+            if (player.md.mass.gte(1e100) && player.inf.theorem.lt(1)) x = x.mul(player.md.mass.max(10).log(10).div(100).pow(y).max(1))
 
             return x
         },

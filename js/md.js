@@ -48,7 +48,7 @@ const MASS_DILATION = {
         if (hasElement(32)) x = x.pow(1.05)
         if (QCs.active()) x = x.pow(tmp.qu.qc_eff[4])
         
-        if (player.supernova.times.gte(1)) x = x.pow(player.supernova.times.mul(0.01).add(1))
+        if (player.supernova.times.gte(1) && x.gte(1)) x = x.pow(player.supernova.times.mul(0.01).add(1))
 
         x = x.softcap(tmp.md.massSoftcap1,0.5,0)
 

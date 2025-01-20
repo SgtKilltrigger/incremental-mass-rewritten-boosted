@@ -13,7 +13,7 @@ const RADIATION = {
 
         if (hasTree('ct8')) x = x.mul(treeEff('ct8'))
 
-        if (player.supernova.times.gte(1) && player.inf.theorem.lt(1)) x = x.mul(player.supernova.times.mul(0.1))
+        if (player.supernova.times.gte(11) && player.inf.theorem.lt(1)) x = x.mul(player.supernova.times.mul(0.15))
 
         return x
     },

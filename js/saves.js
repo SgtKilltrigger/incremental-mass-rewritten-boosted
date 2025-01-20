@@ -1,7 +1,7 @@
 function E(x){return new Decimal(x)};
 
 const EINF = Decimal.dInf
-const FPS = 20
+const FPS = 30
 
 function uni(x) { return E(1.5e56).mul(x) }
 function mlt(x) { return uni("ee9").pow(x) }
