@@ -143,6 +143,7 @@ const ATOM = {
             let t = player.atom.gamma_ray
             t = t.mul(tmp.radiation.bs.eff[10])
             let pow = E(2)
+            pow = pow.add(t.mul(0.003)).min(5)
             if (player.mainUpg.atom.includes(4)) pow = pow.add(tmp.upgs.main?tmp.upgs.main[3][4].effect:E(0))
             if (player.mainUpg.atom.includes(11)) pow = pow.mul(tmp.upgs.main?tmp.upgs.main[3][11].effect:E(1))
             if (hasTree("gr1")) pow = pow.mul(tmp.supernova.tree_eff.gr1)
