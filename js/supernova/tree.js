@@ -488,7 +488,7 @@ const TREE_UPGS = {
             req() { return player.atom.quarks.gte("e12500") && FERMIONS.onActive("10") },
             reqDesc() { return `Reach ${format("e12500")} quarks while in [Electron]` },
             desc: `[Electron] max tier is increased by 35. Its effect softcap is weaker.`,
-            cost: E(1e42),
+            cost: E(0), //was 1e42
         },
         fn6: {
             branch: ["fn2"],
