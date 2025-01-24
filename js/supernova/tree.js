@@ -464,8 +464,6 @@ const TREE_UPGS = {
         },
         fn2: {
             branch: ["fn1"],
-            req() { return player.mass.div('1.5e56').gte("ee6") && player.md.active && FERMIONS.onActive("01") },
-            reqDesc() { return `Reach ${formatMass(E('e1e6').mul(1.5e56))} while dilating mass in [Down]` },
             desc: `Unlock 2 more types of U-Quark & U-Fermion.`,
             cost: E(1e33),
         },
@@ -492,8 +490,6 @@ const TREE_UPGS = {
         },
         fn6: {
             branch: ["fn2"],
-            req() { return player.mass.gte(uni('e4e4')) && FERMIONS.onActive("02") && CHALS.inChal(5) },
-            reqDesc() { return `Reach ${formatMass(uni("e4e4"))} while in [Charm] & Challenge 5.` },
             desc: `Unlock 2 more types of U-Quark & U-Fermion.`,
             cost: E(1e48),
         },
