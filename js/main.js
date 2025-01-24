@@ -47,7 +47,8 @@ const FORMS = {
     massGain() {
         let x = E(1)
         x = x.add(BUILDINGS.eff('mass_1'))
-        if (player.mass.gte(1) && player.inf.theorem.lt(1)) x = x.mul(player.mass.max(1).log(10).plus(1))
+        let h = player.supernova.times
+        if (player.mass.gte(1) && player.inf.theorem.lt(1)) x = x.mul(player.mass.max(1).log(10).plus(1).pow(h.max(1)))
         if (player.ranks.rank.gte(1)) x = x.mul(player.ranks.rank.mul(0.333).add(1))
         if (player.ranks.tier.gte(1)) x = x.mul(player.ranks.tier.add(1).pow(2))
         if (player.ranks.rank.gte(6)) x = x.mul(RANKS.effect.rank[6]())
@@ -440,6 +441,7 @@ const FORMS = {
             if (gain.lt(1)) return E(0)
             gain = gain.root(4)
             gain = gain.mul(player.ranks.tetr.add(1))
+            if ((player.supernova.times.gte(1)) && (player.inf.theorem.lt(1))) gain = gain.mul(player.ranks.tetr.pow(100).pow(player.supernova.times.add(1).max(1)))
 
             if (hasTree("bh1") && !hasElement(166)) gain = gain.mul(tmp.supernova.tree_eff.bh1)
             if (!hasElement(204)) gain = gain.mul(tmp.bosons.upgs.photon[0].effect)
@@ -472,7 +474,7 @@ const FORMS = {
         massGain() {
             let x = tmp.bh.f.mul(BUILDINGS.eff('bhc'))
             let y = new Decimal(1000)
-            if (x.gte(1) && player.inf.theorem.lt(1)) x = x.mul(player.bh.mass.max(1).log(25).add(1))
+            if (x.gte(1) && player.inf.theorem.lt(1)) x = x.mul(player.bh.mass.max(1).log(25).add(1).pow(player.supernova.times.mul(5).max(1)))
             if (player.ranks.tetr.gte(1)) x = x.mul(y.pow(player.ranks.tetr)).max(1)
             if (player.mainUpg.rp.includes(11)) x = x.mul(tmp.upgs.main?tmp.upgs.main[1][11].effect:E(1))
             if (player.mainUpg.bh.includes(14)) x = x.mul(tmp.upgs.main?tmp.upgs.main[2][14].effect:E(1))
