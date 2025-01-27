@@ -68,7 +68,7 @@ const BOSONS = {
 
             if (tmp.c16active || inDarkRun()) x = expMult(x,mgEff(4)[0])
 
-            if (player.supernova.bosons.graviton.gte(1) && player.inf.theorem.lt(1) && player.supernova.bosons.gluon.gte(1) && x.gte(1)) x = x.mul(player.supernova.bosons.gluon).max(1).log(2).max(1).pow(player.supernova.times.mul(0.1).max(1)) 
+            if (player.supernova.bosons.graviton.gte(1) && player.inf.theorem.lt(1) && player.supernova.bosons.gluon.gte(1) && x.gte(1)) x = x.mul((player.supernova.bosons.gluon).max(1).log(2).max(1).pow(player.supernova.times.mul(0.1).max(1)))
 
             return x
         },
