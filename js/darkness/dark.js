@@ -10,6 +10,7 @@ const DARK = {
         x = x.mul(tmp.dark.shadowEff.ray)
         if (tmp.chal) x = x.mul(tmp.chal.eff[13])
         if (player.ranks.hex.gte(4)) x = x.mul(RANKS.effect.hex[4]())
+        if (player.dark.shadow.gte(1) && player.dark.rays.gte(1)) x = x.mul(player.dark.rays.max(1).log(2).add(1))
         if (hasElement(141)) x = x.mul(10)
         if (hasElement(145)) x = x.mul(elemEffect(145))
         if (hasElement(152)) x = x.mul(elemEffect(152))
