@@ -440,8 +440,8 @@ const FORMS = {
             if (CHALS.inChal(7) || CHALS.inChal(10)) gain = player.mass.div(1e180)
             if (gain.lt(1)) return E(0)
             gain = gain.root(4)
-            gain = gain.mul(player.ranks.tetr.add(1)).max(1)
-            if ((player.supernova.times.gte(1)) && (player.inf.theorem.lt(1))) gain = gain.mul(player.ranks.tetr.pow(100).pow(player.supernova.times.add(1).max(1)))
+            if (player.ranks.tetr.gte(1)) gain = gain.mul(player.ranks.tetr.add(1)).max(1)
+            if ((player.supernova.times.gte(1)) && (player.inf.theorem.lt(1)) && player.ranks.tetr.gte(1)) gain = gain.mul(player.ranks.tetr.pow(100).max(1).pow(player.supernova.times.add(1).max(1)))
 
             if (hasTree("bh1") && !hasElement(166)) gain = gain.mul(tmp.supernova.tree_eff.bh1)
             if (!hasElement(204)) gain = gain.mul(tmp.bosons.upgs.photon[0].effect)
