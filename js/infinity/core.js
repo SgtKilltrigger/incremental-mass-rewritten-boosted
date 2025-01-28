@@ -422,7 +422,7 @@ const MAX_CORE_LENGTH = 8
 const MIN_CORE_LENGTH = 4
 const MAX_INV_LENGTH = 100
 
-const CORE_CHANCE_MIN = 0.225
+const CORE_CHANCE_MIN = 0.1
 const CORE_TYPE = Object.keys(CORE)
 const MIN_STAR_CHANCES = [0.1,0.1,0.1,0.1,0.01,0.01,0.0025,0.000125] // new Array(MAX_STARS).fill(0.1)
 
@@ -433,7 +433,7 @@ var core_weight = {}
 var core_star_luck = []
 var core_star_chances = []
 
-function getCoreChance(i, lvl=tmp.core_lvl) { return Decimal.sub(1,Decimal.pow(Decimal.sub(1,Decimal.pow(MIN_STAR_CHANCES[i],core_star_luck[i].pow(-1))),lvl.floor().pow(0.4))) } // 1-Math.pow(1-MIN_STAR_CHANCES[i]**(1/core_star_luck[i]),Math.floor(lvl)**0.4)
+function getCoreChance(i, lvl=tmp.core_lvl) { return Decimal.sub(1,Decimal.pow(Decimal.sub(1,Decimal.pow(MIN_STAR_CHANCES[i],core_star_luck[i].pow(-1))),lvl.floor().pow(0.6))) } // 1-Math.pow(1-MIN_STAR_CHANCES[i]**(1/core_star_luck[i]),Math.floor(lvl)**0.4)
 function getPowerMult(lvl=tmp.core_lvl) { return lvl.sub(1).floor().root(2).div(100).mul(tmp.cs_effect.power_mult) } // Math.floor(lvl-1)**0.5/100 * tmp.cs_effect.power_mult
 function chanceToBool(arr) { return arr.map((x,i) => core_star_chances[i].gt(x)) }
 

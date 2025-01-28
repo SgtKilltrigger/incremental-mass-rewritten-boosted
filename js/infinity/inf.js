@@ -283,11 +283,11 @@ const INF = {
             },{
                 title: "Stop Big Rip Switching",
                 desc: "Pre-218 big rip elements are now affordable outside Big Rip. Automate elements tier 2 (119th-218th).",
-                cost: E(100),
+                cost: E(10),
             },{
                 title: "Dark Passive",
                 desc: "Start with more dark rays (like dark ray’s first reward unlocked).",
-                cost: E(100),
+                cost: E(1),
             },
         ],[
             {
