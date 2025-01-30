@@ -215,7 +215,7 @@ function calcDark(dt) {
 
     if (tmp.c16active) player.dark.c16.bestBH = player.dark.c16.bestBH.max(player.bh.mass)
 
-    if (tmp.c16active && tmp.c16.shardGain.gt(0)) player.dark.c16.shard = player.dark.c16.shard.add(tmp.c16.shardGain.mul(0.0001.mul))
+    if (tmp.c16active && player.bh.mass.gte(1e100)) player.dark.c16.shard = player.dark.c16.shard.add(tmp.c16.shardGain.mul(0.001))
 
     if (hasCharger(1)) {
         player.bh.unstable = UNSTABLE_BH.getProduction(player.bh.unstable,tmp.unstable_bh.gain.mul(dt))
