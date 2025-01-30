@@ -143,7 +143,7 @@ function buyCharger(i) {
 
     let c = CHARGERS[i], cost = c.cost
 
-    if (player.dark.c16.shard.gte(cost) && !tmp.c16active) {
+    if (player.dark.c16.shard.gte(cost) && (!tmp.c16active || player.inf.theorem.gte(1))) {
         player.dark.c16.shard = player.dark.c16.shard.sub(cost).max(0)
 
         player.dark.c16.charger.push(i)
